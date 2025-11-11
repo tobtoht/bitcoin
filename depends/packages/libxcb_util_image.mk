@@ -4,7 +4,7 @@ $(package)_download_path=https://xcb.freedesktop.org/dist
 $(package)_file_name=xcb-util-image-$($(package)_version).tar.gz
 $(package)_sha256_hash=cb2c86190cf6216260b7357a57d9100811bb6f78c24576a3a5bfef6ad3740a42
 $(package)_dependencies=libxcb libxcb_util
-$(package)_patches=missing_xcb_aux.patch
+$(package)_patches=missing_xcb_aux.patch skip_tests.patch
 
 define $(package)_set_vars
 $(package)_config_opts=--disable-shared --disable-devel-docs --without-doxygen
@@ -12,8 +12,10 @@ $(package)_config_opts+= --disable-dependency-tracking --enable-option-checking
 endef
 
 define $(package)_preprocess_cmds
+  rm -rf test && \
   cp -f $(BASEDIR)/config.guess $(BASEDIR)/config.sub . && \
-  patch -p1 < $($(package)_patch_dir)/missing_xcb_aux.patch
+  patch -p1 < $($(package)_patch_dir)/missing_xcb_aux.patch && \
+  patch -p1 < $($(package)_patch_dir)/skip_tests.patch
 endef
 
 define $(package)_config_cmds

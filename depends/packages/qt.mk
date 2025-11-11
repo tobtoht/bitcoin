@@ -14,6 +14,7 @@ $(package)_patches := dont_hardcode_pwd.patch
 $(package)_patches += qtbase-moc-ignore-gcc-macro.patch
 $(package)_patches += qtbase_avoid_native_float16.patch
 $(package)_patches += qtbase_avoid_qmain.patch
+$(package)_patches += qtbase_libxau_static.patch
 $(package)_patches += qtbase_platformsupport.patch
 $(package)_patches += qtbase_plugins_cocoa.patch
 $(package)_patches += qtbase_skip_tools.patch
@@ -260,6 +261,7 @@ define $(package)_preprocess_cmds
   patch -p1 -i $($(package)_patch_dir)/qtbase-moc-ignore-gcc-macro.patch && \
   patch -p1 -i $($(package)_patch_dir)/qtbase_avoid_native_float16.patch && \
   patch -p1 -i $($(package)_patch_dir)/qtbase_avoid_qmain.patch && \
+  patch -p1 -i $($(package)_patch_dir)/qtbase_libxau_static.patch && \
   patch -p1 -i $($(package)_patch_dir)/qtbase_platformsupport.patch && \
   patch -p1 -i $($(package)_patch_dir)/qtbase_plugins_cocoa.patch && \
   patch -p1 -i $($(package)_patch_dir)/static_fixes.patch && \

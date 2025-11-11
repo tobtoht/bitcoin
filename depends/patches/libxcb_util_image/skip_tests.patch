@@ -1,0 +1,34 @@
+diff --git a/Makefile.in b/Makefile.in
+index a92450f..befc524 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -347,7 +347,7 @@ top_srcdir = @top_srcdir@
+ xcbincludedir = @xcbincludedir@
+ ACLOCAL_AMFLAGS = -I m4
+ MAINTAINERCLEANFILES = ChangeLog INSTALL
+-SUBDIRS = image test
++SUBDIRS = image
+ EXTRA_DIST = autogen.sh
+ all: config.h
+ 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
+diff --git a/configure b/configure
+index d00e06d..49af52b 100755
+--- a/configure
++++ b/configure
+@@ -18633,7 +18633,7 @@ $as_echo "yes" >&6; }
+ 
+ fi
+ 
+-ac_config_files="$ac_config_files Makefile image/Makefile test/Makefile image/xcb-image.pc"
++ac_config_files="$ac_config_files Makefile image/Makefile image/xcb-image.pc"
+ 
+ cat >confcache <<\_ACEOF
+ # This file is a shell script that caches the results of configure
+@@ -19662,7 +19662,6 @@ do
+     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
+     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+     "image/Makefile") CONFIG_FILES="$CONFIG_FILES image/Makefile" ;;
+-    "test/Makefile") CONFIG_FILES="$CONFIG_FILES test/Makefile" ;;
+     "image/xcb-image.pc") CONFIG_FILES="$CONFIG_FILES image/xcb-image.pc" ;;
+ 
+   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
